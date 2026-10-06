@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday!</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg"></div>
+<canvas id="fx"></canvas>
+<div id="glow"></div>
+<div id="balloons"></div>
+
+<!-- Top bar: progress + music button -->
+<header>
+  <div id="progress"><span class="dot on">1</span><i></i><span class="dot">2</span><i></i><span class="dot">3</span></div>
+  <button id="music" class="pill">🎵 Music OFF</button>
+</header>
+
+<!-- PAGE 1 -->
+<section class="page on" id="p1">
+  <div class="photos">
+    <div class="frame round float" data-photo="hero1"></div>
+    <div class="frame round float d2" data-photo="hero2"></div>
+  </div>
+  <h1>🎉 Happy Birthday <span class="nm"></span> ❤️🎂</h1>
+  <p class="sub" id="typed"></p>
+  <button class="btn" data-go="2">Let's Start 🎈 →</button>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="p2">
+  <h2>A Little About You 💖</h2>
+  <div class="grid">
+    <figure><div class="frame" data-photo="c1"></div><figcaption>Little You 🧸</figcaption></figure>
+    <figure><div class="frame" data-photo="c2"></div><figcaption>Those Cute Days ❤️✨</figcaption></figure>
+    <figure><div class="frame" data-photo="n1"></div><figcaption>You Now 😎</figcaption></figure>
+    <figure><div class="frame" data-photo="n2"></div><figcaption>Still Amazing ❤️🔥</figcaption></figure>
+  </div>
+  <div class="card tilt"><h3>Why You Are Special 🌟</h3><p id="msgSpecial" contenteditable="true"></p></div>
+  <div class="card tilt"><h3>Our Bond 👭❤️</h3><p id="msgBond" contenteditable="true"></p></div>
+  <button class="btn" data-go="3">One More Surprise → 🎁</button>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" id="p3">
+  <h2>Your Birthday Cake Is Ready! 🎂</h2>
+  <p class="hint" id="hint">Drag the knife 🔪 onto the cake to cut it!</p>
+  <div class="stage" id="stage">
+    <div class="cakewrap" id="cakewrap"></div>
+    <div class="cutline" id="cutline"></div>
+    <div class="knife" id="knife">🔪</div>
+  </div>
+  <div id="yay" class="card hide">
+    <h3>🎉 YAY! You Cut Your Birthday Cake! 🎂❤️🥳</h3>
+    <p id="msgBlessing" contenteditable="true"></p>
+    <button class="btn" id="wishBtn">Make a Wish 🌠</button>
+  </div>
+  <div id="final" class="card hide">
+    <h3 class="finalh">Happy Birthday Once Again, <span class="nm"></span> ❤️🎉🎂</h3>
+    <p id="msgFinal" contenteditable="true"></p>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
