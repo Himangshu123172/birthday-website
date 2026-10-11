@@ -1,0 +1,76 @@
+/* ===== Pink + Purple + Blue + White ===== */
+:root{--pink:#ff7eb6;--purple:#9b6bff;--blue:#6ec6ff;--k:1}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+body{font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:#fff;background:#1a1033;text-align:center;touch-action:manipulation;-webkit-text-size-adjust:100%}
+.bg{position:fixed;inset:-60%;z-index:-2;background:linear-gradient(135deg,#2a1457,#5b2a9c,#c2468f,#3b6fd1,#2a1457);animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+#glow{position:fixed;width:260px;height:260px;border-radius:50%;pointer-events:none;z-index:-1;background:radial-gradient(circle,rgba(255,126,182,.35),transparent 70%);transform:translate(-50%,-50%);left:-999px;top:0}
+#balloons{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.balloon{position:absolute;bottom:-130px;width:42px;height:54px;border-radius:50% 50% 48% 48%;opacity:.65;animation:rise linear forwards}
+.balloon:after{content:"";position:absolute;left:50%;top:100%;width:1px;height:46px;background:rgba(255,255,255,.5)}
+@keyframes rise{to{transform:translateY(-125vh) rotate(8deg)}}
+
+header{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:calc(8px + env(safe-area-inset-top)) calc(12px + env(safe-area-inset-right)) 8px calc(12px + env(safe-area-inset-left));z-index:20}
+#progress{display:flex;align-items:center;gap:5px}
+#progress i{width:18px;height:2px;background:rgba(255,255,255,.35)}
+.dot{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);transition:.5s}
+.dot.on{background:linear-gradient(135deg,var(--pink),var(--purple));box-shadow:0 0 14px var(--pink);transform:scale(1.12)}
+.pill{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:30px;padding:9px 14px;font:700 14px Poppins,sans-serif;min-height:40px;cursor:pointer}
+
+/* Every page scrolls by itself, so nothing is ever cut off on small screens */
+.page{position:fixed;inset:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding-top:calc(58px + env(safe-area-inset-top));opacity:0;visibility:hidden;transform:translateY(22px) scale(.97);transition:opacity .6s,transform .6s,visibility .6s;z-index:5}
+.page.on{opacity:1;visibility:visible;transform:none}
+.in{min-height:100%;max-width:680px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:8px 16px calc(36px + env(safe-area-inset-bottom))}
+h1{font:700 clamp(36px,11vw,78px) 'Fredoka',system-ui,sans-serif;line-height:1.08;letter-spacing:-.5px;text-shadow:0 5px 16px rgba(0,0,0,.35),0 0 30px var(--pink)}
+.age{font:700 clamp(18px,5.2vw,28px) Poppins,sans-serif;letter-spacing:2px;line-height:1.7;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.frame.hero{width:min(80vw,360px);aspect-ratio:4/5;border-radius:30px;font-size:70px;box-shadow:0 0 40px rgba(255,126,182,.6),0 14px 40px rgba(0,0,0,.35)}
+h2{font:700 clamp(26px,7vw,44px) 'Fredoka',system-ui,sans-serif;line-height:1.3;text-shadow:0 0 18px var(--blue)}
+h3{font-size:21px;margin-bottom:8px;text-shadow:0 0 12px var(--pink)}
+.sub{font:600 clamp(15px,3.9vw,22px) Poppins,sans-serif;min-height:30px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hint{opacity:.9;font-size:16px;padding:0 6px}
+
+.btn{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:0;border-radius:40px;padding:15px 32px;font:700 19px Poppins,sans-serif;min-height:54px;cursor:pointer;box-shadow:0 8px 26px rgba(255,126,182,.45),0 0 18px rgba(155,107,255,.55);transition:transform .25s}
+.btn:hover{transform:translateY(-3px) scale(1.04)}.btn:active{transform:scale(.96)}
+.link{background:none;border:0;color:#fff;opacity:.85;text-decoration:underline;font:600 15px Poppins,sans-serif;padding:10px;cursor:pointer}
+.card{width:100%;background:rgba(255,255,255,.15);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);border-radius:24px;padding:20px;box-shadow:0 10px 34px rgba(0,0,0,.3);transition:transform .3s}
+.card:hover{transform:translateY(-3px)}
+.card p{line-height:1.7;font-size:17px;outline:0;overflow-wrap:anywhere}
+.hide{display:none}.show{display:block;animation:pop .8s cubic-bezier(.2,1.5,.4,1)}
+@keyframes pop{from{transform:scale(.4);opacity:0}}
+.finalh{font-family:'Fredoka',system-ui,sans-serif;font-weight:400;font-size:clamp(23px,6vw,34px);line-height:1.4}
+
+/* Photos */
+.photos{display:flex;gap:16px;justify-content:center}
+.frame{position:relative;width:100%;aspect-ratio:1/1;border-radius:22px;overflow:hidden;background:linear-gradient(135deg,rgba(255,126,182,.4),rgba(110,198,255,.4));border:3px solid rgba(255,255,255,.75);box-shadow:0 0 24px rgba(255,126,182,.55);display:grid;place-items:center;font-size:44px}
+.frame:before{content:"📷"}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.round{width:min(38vw,180px);border-radius:50%}
+.float{animation:float 4s ease-in-out infinite}.d2{animation-delay:-2s}
+@keyframes float{50%{transform:translateY(-12px) rotate(2deg)}}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%}
+figure .frame{opacity:0;transform:scale(.7) rotate(-6deg);transition:transform .8s cubic-bezier(.2,1.3,.4,1),opacity .8s}
+.on figure .frame{opacity:1;transform:none}
+.on figure:nth-child(2) .frame{transition-delay:.2s}.on figure:nth-child(3) .frame{transition-delay:.4s}.on figure:nth-child(4) .frame{transition-delay:.6s}
+figcaption{margin-top:8px;font-weight:700;font-size:15px}
+
+/* ===== Cake game. The "world" is 360x600 and is scaled by --k to fit any screen ===== */
+.stage{position:relative;width:calc(360px*var(--k));height:calc(600px*var(--k));margin:0 auto 10px;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.stage.done{touch-action:auto}
+.world{position:absolute;left:0;top:0;width:360px;height:600px;transform:scale(var(--k));transform-origin:0 0}
+#cakeSvg{position:absolute;left:0;top:0;overflow:visible}
+.fl{transform-box:fill-box;transform-origin:50% 100%;animation:flick .3s infinite alternate}
+.gl{animation:glow .7s infinite alternate}
+@keyframes flick{to{transform:scale(.92,1.1) rotate(3deg)}}
+@keyframes glow{to{opacity:.55}}
+.out .fl,.out .gl{opacity:0;transition:opacity .5s;animation:none}
+.knife{position:absolute;left:0;top:0;width:34px;height:170px;pointer-events:none;z-index:6}
+.knife.off{opacity:0;transition:opacity .6s}
+.kin{position:relative;width:34px;height:170px;transform-origin:50% 100%;animation:wig 1.8s ease-in-out infinite;filter:drop-shadow(0 0 8px var(--blue))}
+.knife.drag .kin{animation:none}
+@keyframes wig{50%{transform:translateY(7px) rotate(3deg)}}
+.hd{position:absolute;top:0;left:5px;width:24px;height:60px;border-radius:12px;background:linear-gradient(90deg,#7a4a2a,#c68a55,#7a4a2a)}
+.bl{position:absolute;top:60px;left:4px;width:26px;height:110px;background:linear-gradient(90deg,#9aa5b5,#fff 45%,#cfd8e6);clip-path:polygon(0 0,100% 0,100% 72%,50% 100%,0 96%)}
+
+@media(prefers-reduced-motion:reduce){.bg,.float,.kin{animation:none}}

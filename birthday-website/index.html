@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2a1457">
+<title>Happy Birthday!</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg"></div><canvas id="fx"></canvas><div id="glow"></div><div id="balloons"></div>
+
+<header>
+  <div id="progress"><span class="dot on">1</span><i></i><span class="dot">2</span><i></i><span class="dot">3</span></div>
+  <button id="music" class="pill">🎵 Music OFF</button>
+</header>
+
+<!-- PAGE 1 -->
+<section class="page on" id="p1"><div class="in">
+  <div class="frame hero float" data-photo="heroPhoto1"></div>
+  <h1>Happy Birthday, <span class="nm"></span>!</h1>
+  <p class="sub" id="typed"></p>
+  <div class="age" id="age"><div id="ageA"></div><div id="ageB"></div></div>
+  <button class="btn" data-go="2">Let's Start 🎈 →</button>
+</div></section>
+
+<!-- PAGE 2 -->
+<section class="page" id="p2"><div class="in">
+  <h2>A Little About You 💖</h2>
+  <div class="grid">
+    <figure><div class="frame" data-photo="childhoodPhoto1"></div><figcaption>Little You 🧸</figcaption></figure>
+    <figure><div class="frame" data-photo="childhoodPhoto2"></div><figcaption>Those Cute Days ❤️✨</figcaption></figure>
+    <figure><div class="frame" data-photo="currentPhoto1"></div><figcaption>You Now 😎</figcaption></figure>
+    <figure><div class="frame" data-photo="currentPhoto2"></div><figcaption>Still Amazing ❤️🔥</figcaption></figure>
+  </div>
+  <div class="card"><h3>Why You Are Special 🌟</h3><p id="msgSpecial" contenteditable="true" spellcheck="false"></p></div>
+  <div class="card"><h3>Our Bond 👭❤️</h3><p id="msgBond" contenteditable="true" spellcheck="false"></p></div>
+  <button class="btn" data-go="3">One More Surprise → 🎁</button>
+</div></section>
+
+<!-- PAGE 3 -->
+<section class="page" id="p3"><div class="in">
+  <h2>Your Birthday Cake Is Ready! 🎂</h2>
+  <p class="hint" id="hint">Swipe DOWN through the cake to make a cut. Make 2 cuts to free a slice! 🔪</p>
+  <div class="stage" id="stage"><div class="world" id="world">
+    <svg id="cakeSvg" viewBox="0 0 360 600" width="360" height="600"></svg>
+    <div class="knife" id="knife"><div class="kin"><i class="hd"></i><i class="bl"></i></div></div>
+  </div></div>
+  <button class="link" id="autoCut">Can't swipe? Tap here to cut for me 🍰</button>
+  <div id="yay" class="card hide">
+    <h3>🎉 YAY! You Cut Your Birthday Cake! 🎂❤️🥳</h3>
+    <p id="msgBlessing" contenteditable="true" spellcheck="false"></p>
+    <button class="btn" id="wishBtn">Make a Wish 🌠</button>
+  </div>
+  <div id="final" class="card hide">
+    <h3 class="finalh">Happy Birthday Once Again, <span class="nm"></span> ❤️🎉🎂</h3>
+    <p id="msgFinal" contenteditable="true" spellcheck="false"></p>
+  </div>
+</div></section>
+
+<script src="script.js"></script>
+</body>
+</html>
